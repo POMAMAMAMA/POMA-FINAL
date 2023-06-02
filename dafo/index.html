@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+
+@font-face {
+			font-family:'FZ';
+			src: url(../../../font/FZXXLFW.TTF);
+		}
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: rgb(211, 211, 211);
+        }
+        
+        .textbox {
+            position: absolute;
+
+            opacity: 1;
+            transition: opacity 0.5s;
+
+        }
+
+        #video-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            
+            background-color: rgba(0, 0, 0, 0);
+            transition: transform 10s;
+            z-index: 1;
+            transition: transform 10s;
+            opacity: 0;
+        }
+
+        .ok {
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="video-container" >
+        <video src="../../../assets/duci/11.mp4" controls ></video>
+    </div>
+    <div id="img">
+        <img src="../../../assets/duci/1.png" style=" width: 50%; ;right:10;top:500px;position:absolute;">
+    </div>
+    
+    <div id="img">
+        <img src="../../../assets/duci/2.png" style=" width: 50%; ;right:8000;top:1000px;position:absolute;">
+    </div>
+
+    <div id="img">
+        <img src="../../../assets/duci/3.png" style=" width: 50%; ;right:0;top:1500px;position:absolute;">
+    </div>
+
+    <div id="img">
+        <img src="../../../assets/duci/4.png" style=" width: 100%; ;right:60;top:2000px;position:absolute;">
+    </div>
+
+
+
+    <div id="text-container">
+        <div class="textbox">
+            <p style="display: inline-block; vertical-align: middle;font-family: 'FZ';letter-spacing: 3px;font-size: 64px;color: rgba(34, 34, 34, 0.5);">賽博</p>
+        </div>
+        <div class="textbox">
+            <p style="display: inline-block; vertical-align: middle;font-family: 'FZ';letter-spacing: 3px;font-size: 64px;color: rgb(34, 34, 34, 0.5);">極樂</p>
+        </div>
+        <div class="textbox">
+            <p style="display: inline-block; vertical-align: middle;font-family: 'FZ';letter-spacing: 3px;font-size: 64px;color: rgb(34, 34, 34, 0.5);">放縱</p>
+        </div>
+        <div class="textbox">
+            <p style="display: inline-block; vertical-align: middle;font-family: 'FZ';letter-spacing: 3px;font-size: 64px;color: rgb(34, 34, 34, 0.5);">寂寥</p>
+        </div>
+        <div class="textbox">
+            <p style="display: inline-block; vertical-align: middle;font-family: 'FZ';letter-spacing: 3px;font-size: 64px;color: rgb(34, 34, 34, 0.5);">賽博</p>
+        </div>
+        <div class="textbox">
+            <p style="display: inline-block; vertical-align: middle;font-family: 'FZ';letter-spacing: 3px;font-size: 64px;color: rgb(34, 34, 34, 0.5);">極樂</p>
+        </div>
+        <div class="textbox">
+            <p style="display: inline-block; vertical-align: middle;font-family: 'FZ';letter-spacing: 3px;font-size: 64px;color: rgb(34, 34, 34, 0.5);">放縱</p>
+        </div>
+        <div class="textbox">
+            <p style="display: inline-block; vertical-align: middle;font-family: 'FZ';letter-spacing: 3px;font-size: 64px;color: rgb(34, 34, 34, 0.5);">寂寥</p>
+        </div>
+    </div>
+
+    <div id="title" class="ok">
+        <p style="display: inline-block; vertical-align: middle;font-family: 'FZ';font-size: 150px;position: absolute;left: 120px;color: rgb(34, 34, 34);letter-spacing: 20px;">渡刺</p>
+    </div>
+
+    <div id="jianjie" class="ok">
+        <p style="width: 300px;font-size: 20px;position: absolute;left: 200px;top: 400px;color: rgb(34, 34, 34);font-family: 'FZ';letter-spacing: 3px; line-height: 1.5;">
+            刺是人們心中的雜念，我們用渡劫的方式幫助人們解開心中的塵念，同時將電音文化融入了大佛的元素，希望打造出全新的跨界音樂祭，以賽博佛祖與視覺元素，以荒誕反叛，反烏托邦的內核，釋放當下年輕人的壓力，改善孤獨感與社交焦慮的現象。
+
+        </p>
+    </div>
+
+    <div id="timu" class="ok">
+        <p style="color: antiquewhite;font-size: 40px;position: absolute;right: 300px;bottom: 50px;z-index: 999;font-family: 'FZ';letter-spacing: 2px;">寂静的形体</p>
+    </div>
+</body>
+
+<script>
+    // 在页面加载完成后执行
+    window.onload = function() {
+        // 获取所有类名为 "textbox" 的文本框元素
+        var textboxes = document.getElementsByClassName("textbox");
+        
+        // 遍历所有文本框
+        for (var i = 0; i < textboxes.length; i++) {
+            var textbox = textboxes[i];
+            
+            // 随机生成文本框的位置
+            var xPos = Math.random() * (window.innerWidth - textbox.offsetWidth);
+            var yPos = Math.random() * (window.innerHeight - textbox.offsetHeight);
+            
+            // 设置文本框的位置
+            textbox.style.left = xPos + "px";
+            textbox.style.top = yPos + "px";
+        }
+    };
+
+
+
+
+    window.addEventListener('wheel', function(event) {
+            // 判断滚轮滚动方向
+            var delta = event.deltaY || event.detail || event.wheelDelta;
+
+            // 滚轮向下滚动时逐渐降低文字透明度
+            if (delta > 0) {
+                var textboxes = document.getElementsByClassName('textbox');
+                for (var i = 0; i < textboxes.length; i++) {
+                    var textbox = textboxes[i];
+                    var opacity = parseFloat(window.getComputedStyle(textbox).getPropertyValue('opacity'));
+                    textbox.style.opacity = Math.max(0, opacity - 0.1);
+                }
+            }
+        });
+
+
+        window.addEventListener('wheel', function(event) {
+            // 判断滚轮滚动方向
+            var delta = event.deltaY || event.detail || event.wheelDelta;
+
+            // 滚轮向下滚动时逐渐降低容器透明度
+            if (delta > 0) {
+                var containers = document.querySelectorAll('.ok');
+                for (var i = 0; i < containers.length; i++) {
+                    var container = containers[i];
+                    var opacity = parseFloat(window.getComputedStyle(container).getPropertyValue('opacity'));
+                    container.style.opacity = Math.max(0, opacity - 0.1);
+                }
+            }
+        });
+
+
+        var maxScale = 1;
+
+        function handleScroll(event) {
+            // 判断滚轮滚动方向
+            var delta = event.deltaY || event.detail || event.wheelDelta;
+
+            // 滚轮向下滚动时逐渐放大视频容器
+            if (delta > 0) {
+                scale += 0.1;
+            } else {
+                scale -= 0.1;
+            }
+
+            // 设置容器的缩放比例
+            var videoContainer = document.getElementById('video-container');
+            videoContainer.style.transform = 'scale(' + scale + ')';
+        }
+
+        window.addEventListener('wheel', handleScroll);
+
+
+
+
+
+
+
+
+        window.addEventListener('wheel', function(event) {
+    var delta = event.deltaY || event.detail || event.wheelDelta;
+    var videoContainer = document.getElementById('video-container');
+    var opacity = parseFloat(window.getComputedStyle(videoContainer).getPropertyValue('opacity'));
+
+    if (delta > 0 && opacity < 1) {
+        opacity += 0.1;
+    } else if (delta < 0 && opacity > 0) {
+        opacity -= 0.1;
+    }
+
+    // 确保不透明度值在合理范围内
+    opacity = Math.min(1, Math.max(0, opacity));
+    videoContainer.style.opacity = opacity;
+});
+
+
+
+
+
+
+
+
+</script>
+</html>
