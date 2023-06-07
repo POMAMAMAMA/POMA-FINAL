@@ -42,39 +42,35 @@
             transition: opacity 0.5s;
         }
 
+        .tupian{
+            opacity: 0;
+        }
         
     </style>
 </head>
 <body>
 
-    <div id="img1" class="img">
-        <img src="../../../assets/pingmu/1-01.png" style=" width: 30%; ;right:10;top:800px;position:absolute;">
+    <div id="img1" class="tupian">
+        <img src="../../../assets/pingmu/1-01.png" style="width: auto; top:0px;position:absolute;">
     </div>
     
-    <div id="img1" class="img">
-        <img src="../../../assets/pingmu/2-01.png" style=" width: 30%; ;right:35%;top:1000px;position:absolute;">
+    <div id="img2" class="tupian">
+        <img src="../../../assets/pingmu/2-01.png" style="width: auto; top:2500px;position:absolute;">
     </div>
 
-    <div id="img2" class="img">
-        <img src="../../../assets/pingmu/3-01.png" style=" width: 30%; right:0;top:1200px;position:absolute;">
+    <div id="img3" class="tupian">
+        <img src="../../../assets/pingmu/3-01.png" style="width: auto; top:4000px;position:absolute;">
     </div>
     
-    <div id="img2" class="img">
-        <img src="../../../assets/pingmu/4-01.png" style=" width: 30%; top:1400px;position:absolute;">
+    <div id="img4" class="tupian">
+        <img src="../../../assets/pingmu/4-01.png" style="width: auto;top:5500px;position:absolute;">
     </div>
     
-    <div id="img2" class="img">
-        <img src="../../../assets/pingmu/5-01.png" style=" width: 30%;right:35%;top:1600px;position:absolute;">
+    <div id="img5" class="tupian">
+        <img src="../../../assets/pingmu/5-01.png" style="width: auto;top:7000px;position:absolute;">
     </div>
 
 
-    <div id="img1" class="img">
-        <img src="../../../assets/pingmu/1-01.png" style=" width:200%;right:35%;;position:absolute;z-index: -1000;opacity: 0.1;">
-    </div>
-    
-    <div id="img1" class="img">
-        <img src="../../../assets/pingmu/2-01.png" style=" width:200%;right:35%;;position:absolute;z-index: -1000;opacity: 0.1;">
-    </div>
 
 
 
@@ -222,9 +218,25 @@
 });
 
 
+var containers = document.getElementsByClassName('tupian');
+        var currentOpacity = 0; // 初始透明度
 
+        function handleScroll(event) {
+            var delta = event.deltaY || event.detail || event.wheelDelta;
 
+            // 根据滚轮滚动方向设置透明度变化量
+            var opacityChange = 0.05;
+            if (delta > 0) {
+                currentOpacity = Math.min(1, currentOpacity + opacityChange);
+            }
 
+            // 更新所有容器的透明度
+            for (var i = 0; i < containers.length; i++) {
+                containers[i].style.opacity = currentOpacity.toFixed(1);
+            }
+        }
+
+        window.addEventListener('wheel', handleScroll);
 
 
 
