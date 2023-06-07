@@ -198,9 +198,9 @@
     var opacity = parseFloat(window.getComputedStyle(videoContainer).getPropertyValue('opacity'));
 
     if (delta > 0 && opacity < 1) {
-        opacity += 0.1;
+        opacity += 0.05;
     } else if (delta < 0 && opacity > 0) {
-        opacity -= 0.1;
+        opacity -= 0.05;
     }
 
     // 确保不透明度值在合理范围内
